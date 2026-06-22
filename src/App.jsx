@@ -68,113 +68,13 @@ const dealGrade = (arv,rep,asking) => {
 /* ════════════════════════════════════════════════════════
    SEED DATA
 ════════════════════════════════════════════════════════ */
-const LEADS_SEED = [
-  { id:1, name:"Robert Johnson", phone:"(254) 445-8821", email:"rjohnson@email.com",
-    addr:"1842 Elm St, Waco, TX 76701", city:"Waco", motivation:9,
-    asking:187000, arv:245000, repairs:38000, source:"PropStream",
-    lastContact:"2 days ago", nextFollowUp:"Today", stage:"Under Contract",
-    temp:"hot", beds:3, baths:2, sqft:1620, yearBuilt:1998, mortgage:62000,
-    reason:"Pre-foreclosure, divorce", timeline:"ASAP",
-    notes:"Very motivated. Wife left, behind 3 payments, needs out fast.",
-    callLog:[{ outcome:"Interested", note:"Wants $190k but will negotiate", date:"2 days ago" }],
-    tasks:[{done:true,label:"Initial call"},{done:true,label:"Send contract"},{done:false,label:"Schedule inspection"}] },
-  { id:2, name:"Maria Santos", phone:"(254) 332-9910", email:"msantos@gmail.com",
-    addr:"934 Oak Ave, Killeen, TX 76541", city:"Killeen", motivation:8,
-    asking:162000, arv:215000, repairs:30000, source:"Facebook",
-    lastContact:"Today", nextFollowUp:"Tomorrow", stage:"Negotiating",
-    temp:"hot", beds:4, baths:2, sqft:1840, yearBuilt:2003, mortgage:0,
-    reason:"Inherited property", timeline:"30 days",
-    notes:"Inherited from aunt, lives in Houston. Free & clear. Wants clean close.",
-    callLog:[{ outcome:"Interested", note:"Open to offers, call back Thursday", date:"Today" }],
-    tasks:[{done:true,label:"Initial call"},{done:false,label:"Send offer"}] },
-  { id:3, name:"James Williams", phone:"(254) 771-4432", email:"jwill@yahoo.com",
-    addr:"2201 Pine Rd, Temple, TX 76502", city:"Temple", motivation:7,
-    asking:198000, arv:256000, repairs:42000, source:"County Records",
-    lastContact:"4 days ago", nextFollowUp:"Today", stage:"Appointment Set",
-    temp:"warm", beds:3, baths:2, sqft:1500, yearBuilt:1991, mortgage:88000,
-    reason:"Tax delinquent", timeline:"60 days",
-    notes:"$12k behind on taxes. Afraid of losing the house. Meeting Tue 2pm.",
-    callLog:[], tasks:[{done:true,label:"Initial call"},{done:false,label:"Walkthrough"}] },
-  { id:4, name:"Patricia Davis", phone:"(512) 884-2291", email:"pdavis@hotmail.com",
-    addr:"567 Cedar Ln, San Marcos, TX 78666", city:"San Marcos", motivation:6,
-    asking:174000, arv:228000, repairs:33000, source:"Cold Call",
-    lastContact:"1 week ago", nextFollowUp:"This Week", stage:"Contacted",
-    temp:"warm", beds:3, baths:1, sqft:1380, yearBuilt:1985, mortgage:45000,
-    reason:"FSBO, downsizing", timeline:"Flexible",
-    notes:"Skeptical on price. Follow up with comps to justify offer.",
-    callLog:[{ outcome:"Voicemail", note:"Left message", date:"1 week ago" }],
-    tasks:[{done:false,label:"Send comps"}] },
-  { id:5, name:"Thomas Brown", phone:"(325) 667-5543", email:"tbrown@email.com",
-    addr:"8823 Maple Dr, Abilene, TX 79601", city:"Abilene", motivation:5,
-    asking:155000, arv:205000, repairs:28000, source:"Referral",
-    lastContact:"2 weeks ago", nextFollowUp:"This Week", stage:"New Lead",
-    temp:"cold", beds:4, baths:2, sqft:1720, yearBuilt:2001, mortgage:95000,
-    reason:"Absentee landlord", timeline:"Maybe",
-    notes:"Tenant just left. May be ready soon. Nurture.",
-    callLog:[], tasks:[] },
-  { id:6, name:"Sandra Lee", phone:"(254) 119-8830", email:"slee@email.com",
-    addr:"410 Birch St, Waco, TX 76710", city:"Waco", motivation:4,
-    asking:169000, arv:221000, repairs:31000, source:"Driving for Dollars",
-    lastContact:"3 weeks ago", nextFollowUp:"Overdue", stage:"New Lead",
-    temp:"cold", beds:3, baths:2, sqft:1560, yearBuilt:1994, mortgage:71000,
-    reason:"Distressed exterior", timeline:"Unknown",
-    notes:"Confirmed not interested yet. Long-term nurture.",
-    callLog:[], tasks:[] },
-];
+const LEADS_SEED = [];
 
-const BUYERS_SEED = [
-  { id:1, name:"Carlos Mendez", company:"Lone Star Capital", phone:"(512) 220-7781",
-    email:"carlos@lonestarcap.com", areas:["Waco","Temple","Killeen"],
-    types:["Single Family","Multi-Family"], strategy:"Buy & Hold",
-    range:"$100k–$250k", notes:"Fast closer, never backed out. Prefers Waco. Wants 2+ deals/mo." },
-  { id:2, name:"Ashley Reed", company:"Reed Renovations", phone:"(254) 880-1142",
-    email:"ashley@reedrenov.com", areas:["Killeen","Temple"],
-    types:["Single Family"], strategy:"Fix & Flip",
-    range:"$120k–$200k", notes:"Likes heavy rehabs. Quick yes/no. Texts back fast." },
-  { id:3, name:"Vikram Patel", company:"VP Holdings", phone:"(512) 445-9930",
-    email:"vpatel@vpholdings.com", areas:["San Marcos","Kyle"],
-    types:["Single Family","Duplex"], strategy:"Buy & Hold",
-    range:"$150k–$300k", notes:"Biggest buyer. Wants light-rehab / turnkey-ish." },
-  { id:4, name:"Dana White", company:"Hill Country Homes", phone:"(325) 117-6654",
-    email:"dana@hillcountry.com", areas:["Abilene","Waco"],
-    types:["Single Family"], strategy:"Fix & Flip",
-    range:"$90k–$180k", notes:"Newer buyer. Verify proof of funds before assigning." },
-];
+const BUYERS_SEED = [];
 
-const FINDER_SEED = [
-  { id:101, addr:"1420 Austin Ave, Waco, TX 76701", city:"Waco", owner:"Gerald Pruitt",
-    phone:"(254) 555-0182", email:"gpruitt@email.com", beds:3, baths:2, sqft:1540, yearBuilt:1989,
-    arv:238000, repairs:34000, signal:"Pre-foreclosure", detail:"Filed 18 days ago", motivation:"High", matchScore:94,
-    why:"Owner 4 months behind. High equity. Distressed sale likely within 60 days.",
-    photo:"https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=700&q=80" },
-  { id:102, addr:"815 Trimmier Rd, Killeen, TX 76541", city:"Killeen", owner:"Yolanda Briggs",
-    phone:"(254) 555-0299", email:"ybriggs@email.com", beds:4, baths:2, sqft:1880, yearBuilt:2002,
-    arv:221000, repairs:27000, signal:"Absentee owner", detail:"Vacant 90+ days", motivation:"Medium", matchScore:81,
-    why:"Out-of-state owner, sitting vacant. No mortgage on record — likely free & clear.",
-    photo:"https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=700&q=80" },
-  { id:103, addr:"3302 Birdcreek Dr, Temple, TX 76502", city:"Temple", owner:"Marcus Tate",
-    phone:"(254) 555-0344", email:"mtate@email.com", beds:3, baths:2, sqft:1610, yearBuilt:1995,
-    arv:249000, repairs:41000, signal:"Tax delinquent", detail:"2 years behind", motivation:"High", matchScore:88,
-    why:"Owes ~$9k back taxes. At risk of lien sale. Strong motivation to move fast.",
-    photo:"https://images.unsplash.com/photo-1576941089067-2de3c901e126?w=700&q=80" },
-  { id:104, addr:"612 Hutchison St, San Marcos, TX 78666", city:"San Marcos", owner:"Estate of L. Carver",
-    phone:"(512) 555-0411", email:"carver.estate@email.com", beds:2, baths:1, sqft:1180, yearBuilt:1978,
-    arv:212000, repairs:48000, signal:"Probate", detail:"Inherited estate", motivation:"High", matchScore:85,
-    why:"In probate. Heirs out of area, typically want a quick cash sale.",
-    photo:"https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=700&q=80" },
-  { id:105, addr:"2244 S 14th St, Abilene, TX 79605", city:"Abilene", owner:"Denise Hollis",
-    phone:"(325) 555-0566", email:"dhollis@email.com", beds:3, baths:1, sqft:1320, yearBuilt:1983,
-    arv:178000, repairs:29000, signal:"Code violations", detail:"Multiple open", motivation:"Medium", matchScore:72,
-    why:"Open code violations. Owner may be tired of city hassle and repairs.",
-    photo:"https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=700&q=80" },
-];
+const FINDER_SEED = [];
 
-const ACTIVITY_SEED = [
-  { who:"Azeez", action:"moved Robert Johnson to Under Contract", time:"22m", accent:JADE },
-  { who:"Azeez", action:"logged a call — Maria Santos, Interested", time:"1h", accent:STEEL },
-  { who:"David", action:"added 4 new leads from PropStream", time:"3h", accent:GOLD },
-  { who:"Azeez", action:"sent Elm St deal to Carlos Mendez", time:"1d", accent:PLUM },
-];
+const ACTIVITY_SEED = [];
 
 /* ════════════════════════════════════════════════════════
    PRIMITIVES
@@ -658,7 +558,9 @@ const Dashboard = ({ user, leads, onOpenLead, onGoFinder, onQuickAdd }) => {
         <Eyebrow color={GOLD}>{new Date().toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric"})}</Eyebrow>
         <div style={{ fontSize:26, fontWeight:700, color:"#fff", fontFamily:FD, marginTop:6, letterSpacing:"-0.01em" }}>{greet}, {user.name}.</div>
         <div style={{ fontSize:13.5, color:"#9aa0ab", marginTop:6, lineHeight:1.5 }}>
-          You've got <span style={{color:RUST,fontWeight:700}}>{hot.length} hot leads</span> and <span style={{color:GOLD,fontWeight:700}}>{queue.length} follow-ups</span> waiting. Let's move.
+          {leads.length===0
+            ? <>No leads yet. Tap the <span style={{color:GOLD,fontWeight:700}}>+</span> button to add your first one.</>
+            : <>You've got <span style={{color:RUST,fontWeight:700}}>{hot.length} hot</span> and <span style={{color:GOLD,fontWeight:700}}>{queue.length} follow-ups</span> waiting. Let's move.</>}
         </div>
         <div style={{ display:"flex", gap:10, marginTop:18 }}>
           {[["Hot",hot.length,RUST],["Due",queue.length,GOLD],["Appts",appts.length,STEEL]].map(([l,v,col],i)=>(
@@ -674,9 +576,21 @@ const Dashboard = ({ user, leads, onOpenLead, onGoFinder, onQuickAdd }) => {
         {/* AI finder nudge */}
         <button onClick={onGoFinder} style={{ width:"100%", background:`linear-gradient(100deg, ${INK2}, ${INK})`, border:`1px solid ${GOLD}33`, borderRadius:4, padding:"14px 16px", cursor:"pointer", textAlign:"left", fontFamily:FB, display:"flex", alignItems:"center", gap:13, marginBottom:22 }}>
           <div style={{ width:40, height:40, borderRadius:4, background:GOLD+"1e", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}><Sparkles size={20} color={GOLD}/></div>
-          <div style={{ flex:1 }}><div style={{fontSize:13.5,fontWeight:700,color:"#fff"}}>5 fresh distressed properties found</div><div style={{fontSize:11.5,color:"#9aa0ab",marginTop:2}}>New pre-foreclosures & probate in your markets</div></div>
+          <div style={{ flex:1 }}><div style={{fontSize:13.5,fontWeight:700,color:"#fff"}}>Find distressed properties</div><div style={{fontSize:11.5,color:"#9aa0ab",marginTop:2}}>Search pre-foreclosures, probate & more by area</div></div>
           <ChevronRight size={18} color={GOLD}/>
         </button>
+
+        {/* empty state */}
+        {leads.length===0 && (
+          <div style={{ textAlign:"center", padding:"40px 20px", background:CARD, border:`1px solid ${EDGE}`, borderRadius:4 }}>
+            <div style={{ width:52, height:52, borderRadius:"50%", background:GOLD+"18", display:"flex", alignItems:"center", justifyContent:"center", margin:"0 auto 14px" }}>
+              <Target size={24} color={GOLD2}/>
+            </div>
+            <div style={{ fontSize:16, fontWeight:700, color:INK, fontFamily:FD, marginBottom:6 }}>Your pipeline is empty</div>
+            <div style={{ fontSize:13, color:MUTE, lineHeight:1.55, maxWidth:280, margin:"0 auto 18px" }}>Add your first seller lead and it'll show up here, scored and ready to work.</div>
+            <button onClick={onQuickAdd} style={{ display:"inline-flex", alignItems:"center", gap:7, padding:"12px 20px", background:INK, color:"#fff", border:"none", borderRadius:4, fontSize:13.5, fontWeight:700, cursor:"pointer", fontFamily:FB }}><Plus size={16} color={GOLD}/> Add a Lead</button>
+          </div>
+        )}
 
         {/* priority queue */}
         {hot.length>0 && <>
@@ -716,17 +630,19 @@ const Dashboard = ({ user, leads, onOpenLead, onGoFinder, onQuickAdd }) => {
           </Card>
         </>}
 
-        {/* activity */}
-        <Eyebrow color={SUB} style={{marginBottom:12}}>Team Activity</Eyebrow>
-        <Card style={{ padding:"2px 16px" }}>
-          {ACTIVITY_SEED.map((a,i)=>(
-            <div key={i} style={{ display:"flex", gap:12, padding:"12px 0", borderBottom:i<ACTIVITY_SEED.length-1?`1px solid ${EDGE}`:"none", alignItems:"center" }}>
-              <div style={{ width:28, height:28, borderRadius:4, background:a.who==="David"?INK:GOLD, color:a.who==="David"?GOLD:INK, display:"flex", alignItems:"center", justifyContent:"center", fontSize:11, fontWeight:700, fontFamily:FD, flexShrink:0 }}>{a.who[0]}</div>
-              <div style={{ flex:1 }}><div style={{fontSize:12.5,color:INK,lineHeight:1.4}}><b>{a.who}</b> {a.action}</div></div>
-              <span style={{ fontSize:11, color:MUTE, flexShrink:0 }}>{a.time}</span>
-            </div>
-          ))}
-        </Card>
+        {/* activity — only when there is some */}
+        {ACTIVITY_SEED.length>0 && <>
+          <Eyebrow color={SUB} style={{marginBottom:12}}>Team Activity</Eyebrow>
+          <Card style={{ padding:"2px 16px" }}>
+            {ACTIVITY_SEED.map((a,i)=>(
+              <div key={i} style={{ display:"flex", gap:12, padding:"12px 0", borderBottom:i<ACTIVITY_SEED.length-1?`1px solid ${EDGE}`:"none", alignItems:"center" }}>
+                <div style={{ width:28, height:28, borderRadius:4, background:a.who==="David"?INK:GOLD, color:a.who==="David"?GOLD:INK, display:"flex", alignItems:"center", justifyContent:"center", fontSize:11, fontWeight:700, fontFamily:FD, flexShrink:0 }}>{a.who[0]}</div>
+                <div style={{ flex:1 }}><div style={{fontSize:12.5,color:INK,lineHeight:1.4}}><b>{a.who}</b> {a.action}</div></div>
+                <span style={{ fontSize:11, color:MUTE, flexShrink:0 }}>{a.time}</span>
+              </div>
+            ))}
+          </Card>
+        </>}
       </div>
     </div>
   );
@@ -785,7 +701,13 @@ const Deals = ({ leads, onOpenLead, onQuickAdd }) => {
           );})}
         </div>
         <div style={{ padding:14, display:"flex", flexDirection:"column", gap:9 }}>
-          {shown.length===0 && <div style={{textAlign:"center",padding:40,color:MUTE,fontSize:13}}>No deals match</div>}
+          {shown.length===0 && (
+            <div style={{ textAlign:"center", padding:"48px 20px", color:MUTE }}>
+              <div style={{ width:48, height:48, borderRadius:"50%", background:EDGE, display:"flex", alignItems:"center", justifyContent:"center", margin:"0 auto 14px" }}><ClipboardList size={22} color={MUTE}/></div>
+              <div style={{ fontSize:14.5, fontWeight:700, color:INK, fontFamily:FD, marginBottom:5 }}>{leads.length===0?"No deals yet":"No deals match"}</div>
+              <div style={{ fontSize:12.5, color:MUTE }}>{leads.length===0?"Tap the + button to add your first lead.":"Try a different filter or search."}</div>
+            </div>
+          )}
           {shown.map(l=>{const cc=TEMP[l.temp];const grade=dealGrade(l.arv,l.repairs,l.asking);return(
             <div key={l.id} onClick={()=>setSel(l)} style={{ background:CARD, border:`1px solid ${EDGE}`, borderLeft:`3px solid ${cc}`, borderRadius:4, padding:14, cursor:"pointer", display:"flex", alignItems:"center", gap:13 }}>
               <div style={{ flex:1, minWidth:0 }}>
@@ -938,6 +860,13 @@ const AIFinder = ({ onAddLead }) => {
           );})}
         </div>
         <div style={{ padding:14, display:"flex", flexDirection:"column", gap:13, maxWidth:760, margin:"0 auto", width:"100%", boxSizing:"border-box" }}>
+          {shown.length===0 && (
+            <div style={{ textAlign:"center", padding:"44px 22px", background:CARD, border:`1px solid ${EDGE}`, borderRadius:4 }}>
+              <div style={{ width:50, height:50, borderRadius:"50%", background:GOLD+"18", display:"flex", alignItems:"center", justifyContent:"center", margin:"0 auto 14px" }}><Sparkles size={23} color={GOLD2}/></div>
+              <div style={{ fontSize:15, fontWeight:700, color:INK, fontFamily:FD, marginBottom:6 }}>No properties to show yet</div>
+              <div style={{ fontSize:12.5, color:MUTE, lineHeight:1.55, maxWidth:300, margin:"0 auto" }}>Once a data source (PropStream or county records) is connected, matches for your search will appear here automatically, scored and ready to call.</div>
+            </div>
+          )}
           {shown.map(h=>{const motC=h.motivation==="High"?RUST:h.motivation==="Medium"?AMBER:STEEL;const grade=dealGrade(h.arv,h.repairs,mao(h.arv,h.repairs)+8000);return(
             <div key={h.id} onClick={()=>setSel(h)} style={{ background:CARD, border:`1px solid ${EDGE}`, borderRadius:4, overflow:"hidden", cursor:"pointer" }}>
               <div style={{ position:"relative" }}>
@@ -1002,6 +931,13 @@ const Buyers = () => {
       <ScreenHdr title="Buyers" sub={`${BUYERS_SEED.length} cash buyers`}
         right={<button style={{ display:"flex", alignItems:"center", gap:5, padding:"9px 13px", background:INK, color:"#fff", border:"none", borderRadius:4, fontSize:12, fontWeight:600, cursor:"pointer", fontFamily:FB }}><Plus size={14}/> Add</button>} />
       <div style={{ padding:14, display:"flex", flexDirection:"column", gap:10 }}>
+        {BUYERS_SEED.length===0 && (
+          <div style={{ textAlign:"center", padding:"48px 20px", color:MUTE }}>
+            <div style={{ width:48, height:48, borderRadius:"50%", background:EDGE, display:"flex", alignItems:"center", justifyContent:"center", margin:"0 auto 14px" }}><Users size={22} color={MUTE}/></div>
+            <div style={{ fontSize:14.5, fontWeight:700, color:INK, fontFamily:FD, marginBottom:5 }}>No buyers yet</div>
+            <div style={{ fontSize:12.5, color:MUTE, maxWidth:260, margin:"0 auto" }}>Build your cash-buyer list here. Tap Add to enter your first buyer.</div>
+          </div>
+        )}
         {BUYERS_SEED.map(b=>(
           <div key={b.id} onClick={()=>setSel(b)} style={{ background:CARD, border:`1px solid ${EDGE}`, borderRadius:4, padding:16, cursor:"pointer", display:"flex", alignItems:"center", gap:14 }}>
             <Avatar initial={b.name[0]} />
